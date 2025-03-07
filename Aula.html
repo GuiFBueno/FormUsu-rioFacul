@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Validação de usuário</h1>
+    
+    <div id="Validacao">
+        <label for="Nome">Nome</label>
+        <input type="text" name="Nome" id="nome"><br>
+      
+        
+        <label for="CPF">CPF</label>
+        <input type="text" name="cpf" id="cpf" maxlength="11" required><br>
+
+
+        <label for="Endereco">Endereço</label>
+        <input type="text" name="endereco" id="endereco" required><br>
+        
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email"><br>
+        
+    
+        <label for="confirmEmail">Confirme o Email</label>
+        <input type="email" name="confirmEmail" id="confirmEmail"><br>
+        
+  
+        <div class="form-group">
+            <button class="Enviar" type="button" onclick="validarFormulario()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+      function validarFormulario() {
+      const nome = document.getElementById("nome").value.trim();
+      const cpf = document.getElementById("cpf").value.trim();
+      const endereco = document.getElementById("endereco").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const confirmEmail = document.getElementById("confirmEmail").value.trim();
+
+      if (!nome || !cpf || !endereco || !email || !confirmEmail) {
+        alert("Todos os campos devem ser preenchidos.");
+        return;
+      }
+
+      if (email !== confirmEmail) {
+        alert("Os e-mails não coincidem.");
+        return;
+      }
+
+      alert("Cadastro realizado com sucesso!");
+      document.getElementById("cadastroForm").reset();
+    }
+    </script>
+</body>
+</html>
